@@ -1,0 +1,17 @@
+from google import genai
+from google.genai import types
+
+client = genai.Client(api_key="AQ.Ab8RN6KNAfo6d9ZhXAs5wvMzzaoQyGrdxHCXT6unBeafI-yXHw"
+
+chat = client.chats.create(
+    model="gemini-2.5-flash",
+    config=types.GenerateContentConfig(
+        system_instruction="You are a Python programming tutor."
+    )
+)
+
+response = chat.send_message(
+    "Write a Python function to calculate factorial."
+)
+
+print(response.text)
